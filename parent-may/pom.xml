@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.irit.smac.lib</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../parent/</relativePath>
+	</parent>
+
+	<groupId>fr.irit.smac.lib</groupId>
+	<artifactId>parent-may</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<description>Parent pom for all MAY libraries</description>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.7</version>
+					<executions>
+						<execution>
+							<id>add-source</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>add-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>src-gen</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<!--
+		This is a workaround to add speadl file to the jar
+		Apparently eclipse does not understand that and it prevents
+		it to validate speadl files in the target dir
+		(see https://bugs.eclipse.org/bugs/show_bug.cgi?id=356616)
+		  -->
+		<profile>
+			<id>add-speadl-resources</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-resources-plugin</artifactId>
+							<executions>
+								<execution>
+									<id>copy-resources</id>
+									<phase>initialize</phase>
+									<goals>
+										<goal>copy-resources</goal>
+									</goals>
+									<configuration>
+										<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+										<resources>
+											<resource>
+												<directory>src/main/java</directory>
+												<includes>
+													<include>**/*.speadl</include>
+												</includes>
+											</resource>
+										</resources>
+									</configuration>
+								</execution>
+							</executions>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+</project>
