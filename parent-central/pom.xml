@@ -11,7 +11,7 @@
 
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>Parent POM for all fr.irit.smac artifacts deployed to Maven Central</description>
-	<url>http://www.irit.fr/MAY-en</url>
+	<url>https://anon:anon@wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/libs-maven</url>
 
 	<developers>
 		<developer>
@@ -23,9 +23,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:hg:https://anon:anon@wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/may/libs-maven</connection>
-		<developerConnection>scm:hg:https://wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/may/libs-maven</developerConnection>
-		<url>https://anon:anon@wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/may/libs-maven</url>
+		<connection>scm:hg:https://anon:anon@wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/libs-maven</connection>
+		<developerConnection>scm:hg:https://wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/libs-maven</developerConnection>
+		<url>https://anon:anon@wwwsecu.irit.fr/hg/SMAC/victor-noel-phd/libs-maven</url>
 	</scm>
 	
 	<properties>
