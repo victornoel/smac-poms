@@ -1,0 +1,3 @@
+Do not use parent and parent-may, they are only kept here for reference.
+
+parent-central is for artefact to be deployed on maven central under a sub-groupId of fr.irit.smac
