@@ -17,7 +17,7 @@ b) Tycho project
 $ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.1
 
 2) Compile and deploy to an OSS Sonatype staging directory
-$ mvn -P release -Dgpg.keyname 88E33689 clean deploy
+$ mvn -P release -Dgpg.keyname=88E33689 clean deploy
 
 3) Commit and tag it
 $ git commit -am ""v1.2.1 release"
