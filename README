@@ -10,7 +10,7 @@ Prerequisites:
 It should be configured as a Maven server in the settings.xml file as explained on this page: http://central.sonatype.org/pages/apache-maven.html#distribution-management-and-authentication
 3) Encouraged: git must be configured with an @irit.fr email author and if possible, the same as the email used in the GnuPG signature key
 
-1) Prepare for release by setting the version (from aggregator project)
+1) Prepare for release by setting the version (from the parent project, not aggregator!!!)
 a) Normal maven project
 $ mvn versions:set -DnewVersion=1.2.1
 b) Tycho project
