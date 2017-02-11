@@ -1,3 +1,36 @@
 Do not use parent and parent-may, they are only kept here for reference.
 
 parent-central is for artefact to be deployed on maven central under a sub-groupId of fr.irit.smac
+
+To release a maven artifact (using parent-may as a parent to OSS Sonatype) of version 1.2.1 for example, follow these instructions:
+
+Prerequisites:
+1) a GnuPG signing key (until now, I used mine: 88E33689 but any can be used)
+2) a OSS Sonatype account associated to the groupId fr.irit.smac (until now, I used mine: victor.noel, I am the only one that can add other people via https://issues.sonatype.org/browse/OSSRH-12012)
+3) Encouraged: git must be configured with an @irit.fr email author and if possible, the same as the email used in the GnuPG signature key
+
+1) Prepare for release by setting the version (from aggregator project)
+a) Normal maven project
+$ mvn versions:set -DnewVersion=1.2.1
+b) Tycho project
+$ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.1
+
+2) Compile and deploy to an OSS Sonatype staging directory
+$ mvn -P release clean deploy
+
+3) Commit and tag it
+$ git commit -am ""v1.2.1 release"
+$ git tag -as -u 88E33689 v1.2.1 -m "v1.2.1 release"
+
+4) Prepare for next version
+a) Normal maven project
+$ mvn versions:set -DnewVersion=1.2.2-SNAPSHOT
+b) Tycho project
+$ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.2-SNAPSHOT
+
+5) Release the new version on Maven central and githut
+$ git push
+a) Via the OSS Sonatype Nexus UI:
+ go to https://oss.sonatype.org/#stagingRepositories, login and release the staging repository
+b) Via command line:
+$ mvn nexus-staging:release
