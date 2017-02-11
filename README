@@ -6,7 +6,8 @@ To release a maven artifact (using parent-may as a parent to OSS Sonatype) of ve
 
 Prerequisites:
 1) a GnuPG signing key (until now, I used mine: 88E33689 but any can be used)
-2) a OSS Sonatype account associated to the groupId fr.irit.smac (until now, I used mine: victor.noel, I am the only one that can add other people via https://issues.sonatype.org/browse/OSSRH-12012)
+2) a OSS Sonatype account associated to the groupId fr.irit.smac (until now, I used mine: victor.noel, I am the only one that can add other people via https://issues.sonatype.org/browse/OSSRH-12012).
+It should be configured as a Maven server in the settings.xml file as explained on this page: http://central.sonatype.org/pages/apache-maven.html#distribution-management-and-authentication
 3) Encouraged: git must be configured with an @irit.fr email author and if possible, the same as the email used in the GnuPG signature key
 
 1) Prepare for release by setting the version (from aggregator project)
