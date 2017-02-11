@@ -29,7 +29,10 @@ $ mvn versions:set -DnewVersion=1.2.2-SNAPSHOT
 b) Tycho project
 $ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.2-SNAPSHOT
 
-5) Release the new version on Maven central and githut
+5) Commit
+$ git commit -am "increment to 1.2.2 development version"
+
+6) Release the new version on Maven central and githut
 $ git push
 a) Via the OSS Sonatype Nexus UI:
  go to https://oss.sonatype.org/#stagingRepositories, login and release the staging repository
