@@ -11,10 +11,7 @@ It should be configured as a Maven server in the settings.xml file as explained 
 3) Encouraged: git must be configured with an @irit.fr email author and if possible, the same as the email used in the GnuPG signature key
 
 1) Prepare for release by setting the version (from the parent project, not aggregator!!!)
-a) Normal maven project
 $ mvn versions:set -DnewVersion=1.2.1
-b) Tycho project
-$ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.1
 
 2) Compile and deploy to an OSS Sonatype staging directory
 $ mvn -P release -Dgpg.keyname=88E33689 clean deploy
@@ -24,10 +21,7 @@ $ git commit -am ""v1.2.1 release"
 $ git tag -as -u 88E33689 v1.2.1 -m "v1.2.1 release"
 
 4) Prepare for next version
-a) Normal maven project
 $ mvn versions:set -DnewVersion=1.2.2-SNAPSHOT
-b) Tycho project
-$ mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=1.2.2-SNAPSHOT
 
 5) Commit
 $ git commit -am "increment to 1.2.2 development version"
