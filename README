@@ -27,7 +27,7 @@ $ mvn versions:set -DnewVersion=1.2.2-SNAPSHOT
 $ git commit -am "increment to 1.2.2 development version"
 
 6) Release the new version on Maven central and githut
-$ git push
+$ git push --follow-tags
 a) Via the OSS Sonatype Nexus UI:
  go to https://oss.sonatype.org/#stagingRepositories, login and release the staging repository
 b) Via command line:
