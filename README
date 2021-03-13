@@ -17,7 +17,7 @@ $ mvn versions:set -DnewVersion=1.2.1
 $ mvn -P release -Dgpg.keyname=88E33689 clean deploy
 
 3) Commit and tag it
-$ git commit -am ""v1.2.1 release"
+$ git commit -am "v1.2.1 release"
 $ git tag -as -u 88E33689 v1.2.1 -m "v1.2.1 release"
 
 4) Prepare for next version
